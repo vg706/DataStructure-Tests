@@ -1,0 +1,113 @@
+Comando das questões:
+
+1 - Explique os conceitos a seguir:
+- Classe mãe ou super-classe
+- Overload
+- Overriding
+
+2 – Elabore uma classe denominada “Veiculo” contendo os atributos: placa, cor,
+ano, marca e modelo. Crie o método construtor e os métodos set e get para cada atributo e
+também um método print para imprimir os dados de um Veiculo.
+
+3- Elabore uma classe “Automovel” que herda da classe “Veiculo” mas que possui
+mais dois atributos: numeroPortas e categoria (ex: passeio, utilitário, ...). Crie o método construtor e os métodos set e get
+para cada atributo e crie um método print2 para imprimir os dados do Automovel.
+
+4- Elabore um programa em Java que crie um objeto do tipo "Automovel" chamado auto1, leia os
+dados do auto1 na tela (utilize o objeto Scanner) atribuindo esses dados ao mesmo,
+em seguida altere a placa, a cor, ano, marca, modelo, numeroPortas e categoria do mesmo para “BAO 0101”, “Azul”, 2021, "Fiat" e "Toro", 4, "SUV" respectivamente, utilizando os métodos set e por fim imprima todos os dados do
+auto1 utilizando os métodos print e print2 elaborados para as classes.
+
+Respostas:
+1 - Classe mãe ou super-classe
+Essa Classe é a que estende seu conteúdo para compartilhá-lo com outra classe criada posteriormente, essa nova classe herda os atributos e métodos da super-classe, já contendo suas características desde o momento de criação. E a classe filha, que é a extensão da outra, também pode receber novas propriedades além das que foram-lhe concedidas.
+- Overload
+O overload é uma forma de implementar o polimorfismo através dos programas e ocorre quando mais de um método dentro da mesma classe possui nomes iguais, porém, diferentes parâmetros. Ocorrendo o overloading, o polimorfismo de tempo de compilação é exercido e o que vai decidir qual método será executado será o tempo de compilação, caso ocorra algum erro é possível consertar o código sem maiores adversidades pois o efeito será o aparecimento do erro de compilação.
+- Overriding
+Sendo também um tipo de polimorfismo dentro do Java, quando uma classe mãe e uma classe filha possuem em comum o mesmo nome e parâmetros para seus respectivos métodos, ocorre o override. O overriding efetua um polimorfismo de Runtime (tempo de execução) e diferentemente do overloading, os métodos que compartilham características em comum têm o mesmo nome e argumentos, sem diferir em nada. O método que será chamado é determinado no momento de Runtime e a escolha leva em conta o seu tipo de objeto, tendo o poder de acarretar sérios problemas no programa já que o efeito vai ser observável no Runtime e não na compilação.
+2 - public class Veiculo {
+    private String placa;
+    private String cor;
+    private String marca;
+    private String modelo;
+    private int ano;
+    
+    public Veiculo(String placa, String cor, int ano, String marca, String modelo) {
+        this.placa = placa;
+        this.cor = cor;
+        this.ano = ano;
+        this.marca = marca;
+        this.modelo = modelo;
+    }
+    public String getPlaca() {
+        return placa;
+    }
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }    
+    public String getCor() {
+        return cor;
+    }
+    public void setCor(String cor) {
+        this.cor = cor;
+    }    
+    public String getMarca() {
+        return marca;
+    }
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+    public String getModelo() {
+        return modelo;
+    }
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+    public int getAno() {
+        return ano;
+    }
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+    public void print() {
+        System.out.println("A placa do carro e: " + this.getPlaca());
+        System.out.println("A cor do carro : " + this.getCor());
+        System.out.println("O ano de fabricacao do carro e: " + this.getAno());
+        System.out.println("A marca do carro e: " + this.getMarca());
+        System.out.println("O modelo do carro e: " + this.getModelo());
+    }
+}
+3 - public class Automovel extends Veiculo { //"Automovel extends Veiculo" porque a classe Automovel herda as características da classe Veiculo//
+    private String categoria;
+    private int numeroportas; 
+    
+    public Automovel (String placa, String cor, int ano, String marca, String modelo, int numeroportas, String categoria) {
+        super(placa, cor, ano, marca, modelo);
+        this.categoria = categoria;
+        this.numeroportas = numeroportas;
+    }
+    
+    public String getCategoria() {
+        return categoria;
+    }
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+    public int getNumeroPortas() {
+        return numeroportas;
+    }
+    public void setNumeroPortas(int numeroportas) {
+        this.numeroportas = numeroportas;
+    }
+    public void print2() {
+        System.out.println("O numero de portas do carro e: " + this.getNumeroPortas());
+        System.out.println("A categoria do carro e: " + this.getCategoria());       
+    }
+}
+4 - public class Provaestd1 { //não consegui entender o que o professor pediu com "objeto Scanner"//
+    public static void main(String[] args) {
+        Automovel auto1 = new Automovel ("BAO 0101", "Azul", 2021, "Fiat", "Toro", 4, "SUV");
+        auto1.print();
+        auto1.print2();
+    }   
+}
